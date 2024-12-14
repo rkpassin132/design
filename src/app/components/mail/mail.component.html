@@ -1,0 +1,56 @@
+<div class="mail-layout-container">
+    <as-split direction="horizontal" [gutterSize]="5" [unit]="'percent'" style="height: 100vh;">
+        <as-split-area [size]="20" minSize="10" maxSize="25">
+            <section class="filter-sction">
+                <mat-list role="list">
+                    <mat-list-item role="listitem" *ngFor="let item of filterList">{{item}}</mat-list-item>
+                </mat-list>
+            </section>
+        </as-split-area>
+        <as-split-area [size]="80">
+            <div>
+                <section class="header-section">
+                    <mat-icon>menu</mat-icon>
+                    <h2 class="head-title">Inbox</h2>
+                    <mat-form-field class="search-input">
+                        <mat-icon matTextPrefix>search</mat-icon>
+                        <input type="text" matInput placeholder="Search...">
+                        <mat-icon matSuffix>filter_list</mat-icon>
+                    </mat-form-field>
+                </section>
+                <as-split direction="horizontal" [gutterSize]="5" [unit]="'percent'" style="height: 80vh;">
+                    <as-split-area [size]="30" minSize="20" maxSize="40">
+                        <section class="item-list-section">
+                            <div class="actions">
+                                <mat-checkbox [(ngModel)]="selectAll">Checked</mat-checkbox>
+                                <mat-select >
+                                    <mat-option value="active" selected>Active</mat-option>
+                                    <mat-option value="inactive">Inactive</mat-option>
+                                </mat-select>
+                            </div>
+                            <div class="item-list-body">
+                                <mat-list role="list">
+                                    <mat-list-item role="listitem" *ngFor="let item of filterList">{{item}}</mat-list-item>
+                                </mat-list>
+                            </div>
+                        </section>
+                    </as-split-area>
+                    <as-split-area [size]="70">
+                        <section class="mail-body-section">
+                            <mat-card appearance="outlined">
+                                <mat-card-header>
+                                  <mat-card-title> Australian Shepherd</mat-card-title>
+                                  <mat-card-subtitle>Herding group</mat-card-subtitle>
+                                </mat-card-header>
+
+                                <mat-card-actions>
+                                  <button mat-button>Learn More</button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </section>
+                    </as-split-area>
+                </as-split>
+            </div>
+        </as-split-area>
+    </as-split>
+</div>
